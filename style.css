@@ -1,0 +1,369 @@
+:root{
+    --accent: #ff8a00;
+    --dark:#222;
+    --muted:#777;
+    --light:#f7f7f7;
+    --card:#ffffff;
+    --maxw:1200px;
+    font-size:16px;
+    box-sizing:border-box;
+}
+
+*{
+    box-sizing:inherit
+}
+
+html,body{
+    height:100%;
+    margin:0;
+    font-family:Inter,system-ui,Arial,sans-serif;
+    color:var(--dark);
+    background:var(--light)
+}
+
+a{
+    color:inherit;
+    text-decoration:none
+}
+
+/* Контейнер */
+.wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:20px
+}
+
+/* Шапка */
+header{
+    background:#fff;
+    padding:10px 0;
+    box-shadow:0 1px 0 rgba(0,0,0,0.04)
+}
+
+.top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-weight:700
+}
+
+.logo .mark{
+    width:48px;
+    height:48px;
+    border-radius:10px;
+    background:linear-gradient(180deg,var(--accent),#ff6a00);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-weight:800
+}
+
+nav{
+    margin-left:0;
+    flex:1
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    margin:0;
+    padding:0;
+    align-items:center;
+    justify-content:space-between;
+    gap:0;
+    width:100%;
+}
+
+nav ul li{
+    position:relative;
+    padding:6px 10px;
+    cursor:pointer;
+    transition:color .2s ease;
+}
+
+nav ul li::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;bottom:-6px;
+    height:2px;
+    background:var(--accent);
+    transform:scaleX(0);
+    transition:transform .2s ease;
+}
+
+nav ul li:hover{
+    color:var(--accent)
+}
+
+nav ul li:hover::after{
+    transform:scaleX(1)
+}
+
+.search{
+    margin-left:auto;
+    display:flex;
+    gap:12px;
+    align-items:center
+}
+
+.phone{
+    color:var(--muted);
+    font-size:14px
+}
+
+/* Главное */
+.hero{
+    display:flex;
+    gap:40px;
+    align-items:center;
+    padding:40px 0
+}
+
+.hero-left{
+    flex:1
+}
+
+.hero h1{
+    font-size:48px;
+    line-height:1.02;
+    margin:0 0 12px
+}
+
+.hero .discount{
+    font-size:36px;
+    color:var(--accent);
+    margin:0 0 18px
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 18px;
+    background:var(--accent);
+    color:#fff;
+    border-radius:6px;
+    font-weight:700;
+    border:none;
+}
+
+.hero-right{
+    width:420px
+}
+
+.hero-right img{
+    width:100%;
+    display:block
+}
+
+/* Категории */
+.categories{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    padding:30px 0
+}
+
+.cat{
+    background:var(--card);
+    padding:18px;
+    border-radius:8px;
+    text-align:center;
+    box-shadow:0 6px 20px rgba(0,0,0,0.04)
+}
+
+.cat img{
+    max-width:100%;
+    height:120px;
+    object-fit:contain;
+    margin-bottom:8px
+}
+
+.cat h4{
+    margin:6px 0 4px;
+    font-size:16px
+}
+
+.cat p{
+    margin:0;
+    color:var(--muted)
+}
+
+/* Ряд продуктов */
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    padding:10px 0
+}
+
+.product{
+    background:var(--card);
+    padding:14px;
+    border-radius:8px;
+    text-align:center;
+    position:relative;
+    overflow:hidden
+}
+
+.product-hover{
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,0.95);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    transform:translateY(100%);
+    transition:transform .25s ease;
+}
+
+.product:hover .product-hover{transform:translateY(0)}
+
+.status{font-weight:600}
+
+.status.ok{color:green}
+
+.status.no{color:red}
+
+.add-cart{
+    border:1px solid var(--accent);
+    background:var(--accent);
+    color:#fff;
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer
+}
+
+.product img{
+    width:100%;
+    height:140px;
+    object-fit:contain
+}
+
+.product .price{
+    margin-top:8px;
+    font-weight:700
+}
+
+.promo{
+    background:var(--accent);
+    color:#fff;
+    border-radius:8px;
+    padding:28px;
+    display:flex;
+    align-items:center;
+    gap:24px;
+    margin:28px 0}
+
+.promo img{width:360px}
+
+.promo .promo-right{flex:1}
+
+/* Недавно просмотренное */
+.recent{padding:20px 0}
+
+.recent-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px
+}
+
+footer{
+    border-top:1px solid #e8e8e8;
+    padding:26px 0;
+    margin-top:30px;
+    background:#fff
+}
+
+/* Модальные окна */
+.modal-back{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px
+}
+
+.modal{
+    background:#fff;
+    border-radius:10px;
+    max-width:420px;
+    width:100%;
+    padding:18px
+}
+
+.modal h3{
+    margin:0 0 8px
+}
+
+.form-row{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-bottom:12px
+}
+
+.form-row input{
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:8px
+}
+
+.form-actions{
+    display:flex;
+    gap:8px;
+    justify-content:flex-end
+}
+
+/* Бургер меню */
+.burger{
+    display:none;
+    background:transparent;
+    border:0;
+    font-size:22px
+}
+
+.muted{color:var(--muted)}
+.center{text-align:center}
+
+/* Адаптив */
+@media (max-width:1024px){
+    .hero-right{width:320px}
+    .categories{grid-template-columns:repeat(3,1fr)}
+    .products{grid-template-columns:repeat(3,1fr)}
+    .recent-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+@media (max-width:700px){
+    .wrap{padding:14px}
+    nav{display:none}
+    .burger{display:block;margin-left:auto}
+    .top{align-items:center}
+    .hero{flex-direction:column;align-items:flex-start}
+    .hero h1{font-size:28px}
+    .hero-right{width:100%}
+    .categories{grid-template-columns:repeat(2,1fr)}
+    .products{grid-template-columns:repeat(2,1fr)}
+    .recent-grid{grid-template-columns:repeat(2,1fr)}
+    .promo{flex-direction:column;align-items:flex-start}
+    .promo img{width:100%}
+}
+
+/* Меленький телефон */
+@media (max-width:420px){
+    .hero h1{font-size:22px}
+    .btn{padding:10px 14px}
+    .categories{grid-template-columns:1fr}
+    .products{grid-template-columns:1fr}
+    .recent-grid{grid-template-columns:1fr}
+}

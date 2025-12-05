@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Riegel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="wrap top">
+      <div class="logo"><img src="img/logo.png" alt="RIEGEL" style="height:50px" /></div>
+      <nav>
+        <ul>
+          <li class="muted">КАТАЛОГ</li>
+          <li class="muted">НОВИНКИ</li>
+          <li class="muted">АКЦИИ</li>
+          <li class="muted">ДОСТАВКА</li>
+          <li class="muted">О НАС</li>
+        </ul>
+      </nav>
+
+      <button class="burger" aria-label="Меню" onclick="toggleMobileMenu()">☰</button>
+
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+        <!-- верхний ряд поиск + соцсети + корзина -->
+        <div style="display:flex;gap:10px;align-items:center">
+          <input type="text" placeholder="Поиск товаров..." style="padding:8px 10px;border:1px solid #ddd;border-radius:6px;min-width:200px" />
+          <div style="display:flex;gap:8px">
+            <a href="#" title="Telegram"><img src="img/telegram-_1_ 1.png" alt=""></a>
+            <a href="#" title="VK"><img src="img/vk-social-network-logo 1.png" alt=""></a>
+          </div>
+          <button title="Корзина" style="background:#fff;border:none;padding:8px;cursor:pointer"><img src="img/shopping-basket 1.png" alt=""></button>
+        </div>
+        <!-- нижний ряд телефон + кнопки -->
+        <div class="search">
+          <div class="phone">8 (381) 233-50-35</div>
+          <button class="btn" onclick="openModal('login')">Войти</button>
+          <button class="btn" style="background:#fff;color:var(--accent);border:1px solid #ffd0b0" onclick="openModal('register')">Регистрация</button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Велосипеды<br/>со скидкой</h1>
+        <div class="discount">-20%</div>
+        <button class="btn" style="border:1px solid #fff" onclick="location.href='#catalog'">Перейти в каталог</button>
+      </div>
+      <div class="hero-right">
+        <img src="img/image 1.png" alt="Велосипед">
+      </div>
+    </section>
+
+    <section>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2>Категории</h2>
+        <a href="#catalog" class="btn" style="background:none;color:var(--accent);padding:6px 10px;border:1px solid var(--accent)">Показать всё</a>
+      </div>
+      <div class="categories">
+        <div class="cat"><img src="img/image 3.png" alt="cat"><h4>Самокаты</h4><p>от 7 000 руб.</p></div>
+        <div class="cat"><img src="img/image 7.png" alt="cat"><h4>Альпинизм</h4><p>от 5 000 руб.</p></div>
+        <div class="cat"><img src="img/image 4.png" alt="cat"><h4>Велосипеды</h4><p>от 25 000 руб.</p></div>
+        <div class="cat"><img src="img/image 5.png" alt="cat"><h4>Рюкзаки</h4><p>от 5 000 руб.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2>Новинки</h2>
+        <a href="#new" class="btn" style="background:none;color:var(--accent);padding:6px 10px;border:1px solid var(--accent)">Показать всё</a>
+      </div>
+      <div class="products">
+        <div class="product"><img src="img/image 9.png" alt="p"><p class="muted">Велосипед AUTHOR Rival 29x19</p><div class="price">от 39 100 руб.</div></div>
+        <div class="product"><img src="img/image 9.png" alt="p"><p class="muted">Велосипед AUTHOR Rival 29x19</p><div class="price">от 39 100 руб.</div></div>
+        <div class="product"><img src="img/image 9.png" alt="p"><p class="muted">Велосипед AUTHOR Rival 29x19</p><div class="price">от 39 100 руб.</div></div>
+        <div class="product"><img src="img/image 9.png" alt="p"><p class="muted">Велосипед AUTHOR Rival 29x19</p><div class="price">от 39 100 руб.</div></div>
+      </div>
+    </section>
+
+    <section class="promo">
+      <img src="img/kisspng-gt-bicycles-mountain-bike-sport-hardtail-polygon-border-5ada3d8c5847d5 1.png" alt="promo">
+      <div class="promo-right">
+        <p>Новинки</p>
+        <h3>Горные велосипеды</h3>
+        <button class="btn" style="border:1px solid #fff" onclick="location.href='#catalog'">Перейти в каталог</button>
+      </div>
+    </section>
+
+    <section class="recent">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2>Вы недавно смотрели</h2>
+        <a href="#recent" class="btn" style="background:none;color:var(--accent);padding:6px 10px;border:1px solid var(--accent)">Показать всё</a>
+      </div>
+      <div class="recent-grid"><!-- карточки с overlay -->
+        <div class="product">
+          <img src="img/image 9.png">
+          <p class="muted">Велосипед AUTHOR Rival 29x19</p>
+          <div class="price">от 39 100 руб.</div>
+
+          <div class="product-hover">
+            <div class="status ok">В наличии</div>
+            <button class="add-cart" onclick="addToCart()">Добавить в корзину</button>
+          </div>
+        </div>
+        <div class="product">
+          <img src="img/image 9.png">
+          <p class="muted">Велосипед AUTHOR Rival 29x19</p>
+          <div class="price">от 39 100 руб.</div>
+
+          <div class="product-hover">
+            <div class="status no">Нет в наличии</div>
+            <button class="add-cart" onclick="addToCart()">Добавить в корзину</button>
+          </div>
+        </div>
+        <div class="product">
+          <img src="img/image 9.png">
+          <p class="muted">Велосипед AUTHOR Rival 29x19</p>
+          <div class="price">от 39 100 руб.</div>
+
+          <div class="product-hover">
+            <div class="status ok">В наличии</div>
+            <button class="add-cart" onclick="addToCart()">Добавить в корзину</button>
+          </div>
+        </div>
+        <div class="product">
+          <img src="img/image 9.png">
+          <p class="muted">Велосипед AUTHOR Rival 29x19</p>
+          <div class="price">от 39 100 руб.</div>
+
+          <div class="product-hover">
+            <div class="status no">Нет в наличии</div>
+            <button class="add-cart" onclick="addToCart()">Добавить в корзину</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:#fff;color:#222;border-top:1px solid #e5e5e5">
+    <div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px">
+      <div>
+        <div class="logo" style="margin-bottom:8px"><img src="img/logo.png" alt="RIEGEL" style="height:50px;" /></div>
+      </div>
+      <div>
+        <h4>Покупателям</h4>
+        <ul style="list-style:none;padding:0;margin:8px 0;color:#666">
+          <li>Каталог</li>
+          <li>Новинки</li>
+          <li>Акции</li>
+          <li>Доставка</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Компания</h4>
+        <ul style="list-style:none;padding:0;margin:8px 0;color:#666">
+          <li>О нас</li>
+          <li>Контакты</li>
+          <li>Политика</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <p style="color:#666">г. Омск, ул. Гагарина 14</p>
+        <p style="color:#666">8 (381) 233‑50‑35</p>
+        <div style="display:flex;gap:8px;align-items:center">
+          <img src="img/telegram-_1_ 1.png" alt="Telegram" width="28" />
+          <img src="img/vk-social-network-logo 1.png" alt="VK" width="28" />
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid #e5e5e5;margin-top:20px;padding:12px 0;text-align:center;color:#777">
+      © 2025 RIEGEL политика конфиденциальности
+    </div>
+  </footer>
+  <div id="modalBack" class="modal-back" role="dialog" aria-hidden="true" onclick="closeModal(event)">
+    <div class="modal" id="modalContent" role="document" onclick="event.stopPropagation()"></div>
+  </div>
+</body>
+</html>
