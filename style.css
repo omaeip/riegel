@@ -9,6 +9,11 @@
     box-sizing:border-box;
 }
 
+@font-face {
+    font-family: 'Gotham-Pro';
+    src: url(fonts/gothampro.ttf);
+}
+
 *{
     box-sizing:inherit
 }
@@ -16,7 +21,7 @@
 html,body{
     height:100%;
     margin:0;
-    font-family:Inter,system-ui,Arial,sans-serif;
+    font-family:Gotham-Pro;
     color:var(--dark);
     background:var(--light)
 }
@@ -366,4 +371,5 @@ footer{
     .categories{grid-template-columns:1fr}
     .products{grid-template-columns:1fr}
     .recent-grid{grid-template-columns:1fr}
+
 }
